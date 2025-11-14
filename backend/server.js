@@ -1,12 +1,17 @@
-import express from "express";
-import cors from "cors";
-import dotenv from "dotenv";
-import helmet from "helmet";
-import winston from "winston";
-import connectDB from "./config/db.js";
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import helmet from 'helmet';
+import winston from 'winston';
+import connectDB from './config/db.js';
+import { initSentry } from './sentry.js';
+import { performanceMiddleware } from './middleware/performance.js';
 
 dotenv.config();
 connectDB();
+
+// Initialize Sentry
+initSentry();
 
 // Configure Winston logger
 const logger = winston.createLogger({
@@ -43,6 +48,9 @@ app.use(cors({
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
+// Performance monitoring middleware
+app.use(performanceMiddleware);
+
 // Logging middleware
 app.use((req, res, next) => {
   logger.info(`${req.method} ${req.path}`, {
@@ -53,8 +61,18 @@ app.use((req, res, next) => {
 });
 
 // Routes
-import bookRoutes from "./routes/bookRoutes.js";
-app.use("/api/books", bookRoutes);
+import bookRoutes from './routes/bookRoutes.js';
+app.use('/api/books', bookRoutes);
+
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'healthy',
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
+    environment: process.env.NODE_ENV || 'development'
+  });
+});
 
 // Global error handling middleware
 app.use((err, req, res, next) => {

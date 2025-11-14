@@ -4,18 +4,54 @@ This assignment focuses on deploying a full MERN stack application to production
 
 ## Assignment Overview
 
-
-1. **✅ COMPLETED:  MERN application production deployment**
+1. **✅ COMPLETED: MERN application production deployment**
    - Frontend: Code splitting, environment variables, production build
    - Backend: Error handling, secure headers, logging, environment variables
    - MongoDB: Connection pooling, Atlas setup guidance
-2. Deployed the backend to a cloud platform
-3. Deployed the frontend to a static hosting service
-4. Set up CI/CD pipelines with GitHub Actions
-5. Implemented monitoring and maintenance strategies
+2. **✅ COMPLETED: Deployed the backend to a cloud platform**
+3. **✅ COMPLETED: Deployed the frontend to a static hosting service**
+4. **✅ COMPLETED: Set up CI/CD pipelines with GitHub Actions**
+5. **✅ COMPLETED: Implemented monitoring and maintenance strategies**
 
+## Monitoring and Maintenance
 
--
+### Application Monitoring
+- **Health Check Endpoint**: `/health` - Returns application status, uptime, and environment info
+- **Error Tracking**: Sentry integration for both backend and frontend
+  - Automatic error reporting and performance monitoring
+  - Environment-specific configuration
+- **Uptime Monitoring**: Configure external monitoring services to ping health endpoint
+
+### Performance Monitoring
+- **Backend Performance**: Custom middleware tracks API response times and logs performance metrics
+- **Frontend Performance**: Web Vitals integration with custom analytics reporting
+  - Core Web Vitals: CLS, FID, FCP, LCP, TTFB
+  - Performance data sent to Sentry for analysis
+
+### Maintenance Plan
+See [MAINTENANCE.md](MAINTENANCE.md) for comprehensive maintenance procedures including:
+- Regular dependency updates and security patches
+- Database backup strategies
+- Deployment and rollback procedures
+- Incident response protocols
+- Performance optimization schedules
+
+### Environment Variables Required
+```bash
+# Backend
+SENTRY_DSN=your_sentry_dsn_here
+NODE_ENV=production
+
+# Frontend
+REACT_APP_SENTRY_DSN=your_sentry_dsn_here
+REACT_APP_API_URL=your_api_url_here
+```
+
+### Setting up Monitoring
+1. Create a Sentry project for backend and frontend
+2. Add DSN values to environment variables
+3. Configure uptime monitoring service to check `/health` endpoint
+4. Set up alerts for error spikes and performance issues
 ## Deployment Platforms
 
 ### Backend Deployment Options
