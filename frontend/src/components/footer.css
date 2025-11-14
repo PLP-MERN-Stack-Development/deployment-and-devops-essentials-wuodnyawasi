@@ -1,0 +1,36 @@
+/* Footer */
+.footer {
+  background: #2563eb;
+  color: var(--white);
+  padding: 2rem 0;
+  margin-top: auto;
+  text-align: center;
+  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.footer p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.footer p:first-child {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Responsive footer */
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.5rem 0;
+  }
+
+  .footer p {
+    font-size: 0.8rem;
+  }
+}

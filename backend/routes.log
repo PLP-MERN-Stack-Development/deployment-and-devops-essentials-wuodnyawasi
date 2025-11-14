@@ -1,0 +1,26 @@
+{"level":"info","message":"Book READ ALL","method":"GET","params":{},"path":"/","timestamp":"2025-11-14T16:37:16.833Z"}
+{"count":0,"level":"info","message":"Books retrieved successfully","timestamp":"2025-11-14T16:37:16.879Z"}
+{"body":{"author":"Test Author","description":"Test Description","title":"Test Book"},"level":"info","message":"Book CREATE","method":"POST","params":{},"path":"/","timestamp":"2025-11-14T16:37:22.305Z"}
+{"error":"Book validation failed: publishedYear: Path `publishedYear` is required.","level":"error","message":"Error creating book","timestamp":"2025-11-14T16:37:22.332Z"}
+{"body":{"author":"Test Author","description":"Test Description","publishedYear":2023,"title":"Test Book"},"level":"info","message":"Book CREATE","method":"POST","params":{},"path":"/","timestamp":"2025-11-14T16:37:27.468Z"}
+{"bookId":"69175ac79d9ce116890b433f","level":"info","message":"Book created successfully","timestamp":"2025-11-14T16:37:27.480Z"}
+{"level":"info","message":"Book READ ALL","method":"GET","params":{},"path":"/","timestamp":"2025-11-14T16:37:32.228Z"}
+{"count":1,"level":"info","message":"Books retrieved successfully","timestamp":"2025-11-14T16:37:32.237Z"}
+{"level":"info","message":"Book READ ALL","method":"GET","params":{},"path":"/","timestamp":"2025-11-14T16:59:53.936Z"}
+{"count":0,"level":"info","message":"Books retrieved successfully","timestamp":"2025-11-14T16:59:54.078Z"}
+{"body":{"author":"Atlas Author","description":"Testing MongoDB Atlas connection","publishedYear":2024,"title":"Atlas Test Book"},"level":"info","message":"Book CREATE","method":"POST","params":{},"path":"/","timestamp":"2025-11-14T17:00:01.257Z"}
+{"bookId":"69176011db54eabd44fab19e","level":"info","message":"Book created successfully","timestamp":"2025-11-14T17:00:01.388Z"}
+{"level":"info","message":"Book READ ALL","method":"GET","params":{},"path":"/","timestamp":"2025-11-14T17:00:08.269Z"}
+{"count":1,"level":"info","message":"Books retrieved successfully","timestamp":"2025-11-14T17:00:08.378Z"}
+{"level":"info","message":"Book READ ONE","method":"GET","params":{"id":"69176011db54eabd44fab19e"},"path":"/69176011db54eabd44fab19e","timestamp":"2025-11-14T17:01:38.085Z"}
+{"bookId":"69176011db54eabd44fab19e","level":"info","message":"Book retrieved successfully","timestamp":"2025-11-14T17:01:38.238Z"}
+{"body":{"author":"Updated Atlas Author","description":"Updated description","publishedYear":2025,"title":"Updated Atlas Test Book"},"level":"info","message":"Book UPDATE","method":"PUT","params":{"id":"69176011db54eabd44fab19e"},"path":"/69176011db54eabd44fab19e","timestamp":"2025-11-14T17:01:45.547Z"}
+{"bookId":"69176011db54eabd44fab19e","level":"info","message":"Book updated successfully","timestamp":"2025-11-14T17:01:45.757Z"}
+{"level":"info","message":"Book DELETE","method":"DELETE","params":{"id":"69176011db54eabd44fab19e"},"path":"/69176011db54eabd44fab19e","timestamp":"2025-11-14T17:01:52.787Z"}
+{"bookId":"69176011db54eabd44fab19e","level":"info","message":"Book deleted successfully","timestamp":"2025-11-14T17:01:52.901Z"}
+{"level":"info","message":"Book READ ALL","method":"GET","params":{},"path":"/","timestamp":"2025-11-14T17:02:00.233Z"}
+{"count":0,"level":"info","message":"Books retrieved successfully","timestamp":"2025-11-14T17:02:00.400Z"}
+{"level":"info","message":"Book READ ONE","method":"GET","params":{"id":"invalid-id"},"path":"/invalid-id","timestamp":"2025-11-14T17:02:06.459Z"}
+{"bookId":"invalid-id","error":"Cast to ObjectId failed for value \"invalid-id\" (type string) at path \"_id\" for model \"Book\"","level":"error","message":"Error retrieving book","timestamp":"2025-11-14T17:02:06.466Z"}
+{"level":"info","message":"Book READ ONE","method":"GET","params":{"id":"507f1f77bcf86cd799439011"},"path":"/507f1f77bcf86cd799439011","timestamp":"2025-11-14T17:02:13.970Z"}
+{"bookId":"507f1f77bcf86cd799439011","level":"warn","message":"Book not found","timestamp":"2025-11-14T17:02:14.126Z"}
