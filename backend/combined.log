@@ -22,3 +22,5 @@
 {"level":"warn","message":"404 - Route not found: /nonexistent-route","service":"book-api","timestamp":"2025-11-14T17:02:21.859Z"}
 {"level":"info","message":"Server running on port 5000 in development mode","service":"book-api","timestamp":"2025-11-14T17:06:48.024Z"}
 {"level":"info","message":"Server running on port 5000 in development mode","service":"book-api","timestamp":"2025-11-14T17:06:56.715Z"}
+{"level":"info","message":"Server running on port 5000 in development mode","service":"book-api","timestamp":"2025-11-14T17:23:49.851Z"}
+{"level":"info","message":"Server running on port 5000 in development mode","service":"book-api","timestamp":"2025-11-14T17:23:49.826Z"}

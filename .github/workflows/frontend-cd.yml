@@ -1,0 +1,31 @@
+name: Frontend CD
+
+on:
+  push:
+    branches: [ main, staging ]
+    paths: [ 'frontend/**' ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Install Vercel CLI
+      run: npm install -g vercel
+
+    - name: Deploy to Vercel
+      run: |
+        if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+          vercel --prod --yes --token ${{ secrets.VERCEL_TOKEN }}
+        else
+          vercel --yes --token ${{ secrets.VERCEL_TOKEN }}
+        fi
+      working-directory: ./frontend

@@ -28,8 +28,43 @@ This assignment focuses on deploying a full MERN stack application to production
 
 ## CI/CD Pipeline
 
-The assignment includes templates for setting up GitHub Actions workflows:
-- `frontend-ci.yml`: Tests and builds the React application
-- `backend-ci.yml`: Tests the Express.js backend
-- `frontend-cd.yml`: Deploys the frontend to your chosen platform
-- `backend-cd.yml`: Deploys the backend to your chosen platform
+The project uses GitHub Actions for continuous integration and deployment:
+
+### Continuous Integration (CI)
+- **Backend CI**: Runs on pushes/PRs to `main` or `staging` branches affecting backend code
+  - Installs dependencies
+  - Runs ESLint for code quality checks
+  - Executes tests
+  - Builds the application (if applicable)
+- **Frontend CI**: Runs on pushes/PRs to `main` or `staging` branches affecting frontend code
+  - Installs dependencies
+  - Runs ESLint for code quality checks
+  - Executes Jest tests with coverage
+  - Builds the React application
+
+### Continuous Deployment (CD)
+- **Backend CD**: Deploys to Render on pushes to `main` or `staging` branches
+  - Uses Render Deploy Action
+  - Requires `RENDER_SERVICE_ID` and `RENDER_API_KEY` secrets
+- **Frontend CD**: Deploys to Vercel on pushes to `main` or `staging` branches
+  - Uses Vercel CLI
+  - Deploys to production on `main` branch, staging on other branches
+  - Requires `VERCEL_TOKEN` secret
+
+### Environments
+- **Staging**: Deployed on pushes to `staging` branch
+- **Production**: Deployed on pushes to `main` branch
+
+### Rollback Strategies
+- **Render (Backend)**: Use Render dashboard to rollback to previous deployments
+- **Vercel (Frontend)**: Use Vercel dashboard to rollback to previous deployments or redeploy from Git history
+- **Git-based Rollback**: Create a revert commit and push to trigger new deployment
+
+### Setup Instructions
+1. Set up GitHub repository secrets:
+   - `RENDER_SERVICE_ID`: Your Render service ID
+   - `RENDER_API_KEY`: Your Render API key
+   - `VERCEL_TOKEN`: Your Vercel token
+2. Create a `staging` branch for testing deployments
+3. Push to `staging` to test CI/CD pipeline
+4. Merge to `main` for production deployment
