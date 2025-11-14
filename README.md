@@ -36,17 +36,6 @@ See [MAINTENANCE.md](MAINTENANCE.md) for comprehensive maintenance procedures in
 - Incident response protocols
 - Performance optimization schedules
 
-### Environment Variables Required
-```bash
-# Backend
-SENTRY_DSN=your_sentry_dsn_here
-NODE_ENV=production
-
-# Frontend
-REACT_APP_SENTRY_DSN=your_sentry_dsn_here
-REACT_APP_API_URL=your_api_url_here
-```
-
 ### Setting up Monitoring
 1. Create a Sentry project for backend and frontend
 2. Add DSN values to environment variables
@@ -55,12 +44,11 @@ REACT_APP_API_URL=your_api_url_here
 ## Deployment Platforms
 
 ### Backend Deployment Options
-- **Render**: Easy to use, free tier available
+- **Render**: Easy to use, free tier
 
 ### Frontend Deployment Options
 - **Vercel**: Optimized for React apps, easy integration
-- **Netlify**: Great for static sites, good CI/CD
-- **GitHub Pages**: Free, integrated with GitHub
+
 
 ## CI/CD Pipeline
 
@@ -104,3 +92,11 @@ The project uses GitHub Actions for continuous integration and deployment:
 2. Create a `staging` branch for testing deployments
 3. Push to `staging` to test CI/CD pipeline
 4. Merge to `main` for production deployment
+
+
+### Frontend:
+https://frontend-72yf46gxd-michael-saokes-projects.vercel.app
+
+### Backend: 
+
+https://mern-bookstore-backend-1d65.onrender.com
