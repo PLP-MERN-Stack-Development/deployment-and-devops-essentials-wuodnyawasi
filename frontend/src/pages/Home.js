@@ -1,18 +1,19 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import BookCard from "../components/BookCard";
+import API_BASE_URL from "../config/api";
 import "../components.css";
 
 const Home = () => {
   const [books, setBooks] = useState([]);
 
   const loadBooks = async () => {
-    const res = await axios.get("http://localhost:5000/api/books");
+    const res = await axios.get(`${API_BASE_URL}/api/books`);
     setBooks(res.data);
   };
 
   const deleteBook = async (id) => {
-    await axios.delete(`http://localhost:5000/api/books/${id}`);
+    await axios.delete(`${API_BASE_URL}/api/books/${id}`);
     loadBooks();
   };
 

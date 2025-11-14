@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import API_BASE_URL from "../config/api";
 import "../components.css";
 
 const AddBook = () => {
@@ -9,7 +10,7 @@ const AddBook = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:5000/api/books", form);
+    await axios.post(`${API_BASE_URL}/api/books`, form);
     navigate("/");
   };
 

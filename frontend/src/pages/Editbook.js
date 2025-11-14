@@ -12,6 +12,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import API_BASE_URL from "../config/api";
 import "../components.css";
 
 const EditBook = () => {
@@ -20,7 +21,7 @@ const EditBook = () => {
   const navigate = useNavigate();
 
   const loadBook = async () => {
-    const res = await axios.get(`http://localhost:5000/api/books/${id}`);
+    const res = await axios.get(`${API_BASE_URL}/api/books/${id}`);
     setForm(res.data);
   };
 
@@ -30,7 +31,7 @@ const EditBook = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    await axios.put(`http://localhost:5000/api/books/${id}`, form);
+    await axios.put(`${API_BASE_URL}/api/books/${id}`, form);
     navigate("/");
   };
 
